@@ -57,6 +57,26 @@ var config = {
           'another'
         ]
       }
+    },
+    watch: {
+      type: '1n-watch',
+      options: {
+        sources: [
+          {
+            src: 'mockSrc/js/**.*',
+            sequence: [
+              'combo'
+            ]
+          },
+          {
+            src: 'mockSrc/styles/**/*',
+            sequence: [
+              'scss',
+              'copy'
+            ]
+          }
+        ]
+      }
     }
 	}
 }
