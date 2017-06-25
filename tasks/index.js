@@ -6,6 +6,7 @@ var watch = require('./1n-watch');
 var del = require('./1n-delete');
 var browserSync = require('./1n-browser-sync');
 var nodemon = require('./1n-nodemon');
+var custom = require('./1n-custom');
 
 var _ = require('lodash');
 
@@ -17,7 +18,8 @@ var taskSetupMap = {
   '1n-watch': watch,
   '1n-delete': del,
   '1n-browser-sync': browserSync,
-  '1n-nodemon': nodemon
+  '1n-nodemon': nodemon,
+  '1n-custom': custom
 };
 
 module.exports = function(config){

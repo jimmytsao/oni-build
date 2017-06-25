@@ -104,9 +104,20 @@ var config = {
       type: '1n-sequence',
       options: {
         sequence: [
+          'custom',
           'nodemon',
           'browsersync'
         ]
+      }
+    },
+
+    custom: {
+      type: '1n-custom',
+      options: {
+        customTask: function(callback){
+          console.log('Ran a custom task');
+          callback();
+        }
       }
     }
 	}
