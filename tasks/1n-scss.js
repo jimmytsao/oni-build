@@ -6,6 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var gulpIf = require('gulp-if');
 var rename = require('gulp-rename');
 var _ = require('lodash');
+var pipeDests = require('./helpers/pipeDests');
 
 
 var defaultOptions = {
@@ -19,7 +20,6 @@ var defaultOptions = {
 var createTask = function(taskName, taskConfig){
   var options = _.merge(defaultOptions, taskConfig.options);
   var autoprefixerOptions = options.autoprefixerOptions || { browsers: ['last 2 version'] };
-  var destinations = [].concat(options.dest);
 
   gulp.task(taskName, function(){
     var task = gulp.src(options.src)
@@ -30,9 +30,7 @@ var createTask = function(taskName, taskConfig){
       .pipe(gulpIf(!!options.rename, rename(options.rename)))
       .pipe(gulpIf(options.sourcemaps, sourcemaps.write(options.sourcemapsDest || '.')));
 
-    destinations.forEach(function(location){
-      task.pipe(gulp.dest(location));
-    });
+		pipeDests(task, options.dest);
 
     return task;
   });
