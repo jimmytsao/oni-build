@@ -110,7 +110,7 @@ var config = {
     },
 
     custom: {
-      type: '1n-custom',
+      type: 'custom',
       options: {
         customTask: function(callback){
           console.log('Ran a custom task');
