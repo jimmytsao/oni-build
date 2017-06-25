@@ -30,7 +30,34 @@ var config = {
 					}
 				]
 			}
-		}
+		},
+    dev: {
+      type: '1n-sequence',
+      options: {
+        sequence: [
+          'copy',
+          ['scss', 'bundlejs']
+        ]
+      }
+    },
+    another: {
+      type: '1n-sequence',
+      options: {
+        sequence: [
+          'copy',
+          'bundlejs'
+        ]
+      }
+    },
+    combo: {
+      type: '1n-sequence',
+      options: {
+        sequence: [
+          'dev',
+          'another'
+        ]
+      }
+    }
 	}
 }
 
