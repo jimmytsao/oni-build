@@ -92,6 +92,22 @@ var config = {
         port: 3030,
         proxy: 'localhost:3000',
       }
+    },
+    nodemon: {
+      type: '1n-nodemon',
+      options: {
+        script: '../../projects/latham-watkins-keystone/keystone.js',
+        envFile: '../../projects/latham-watkins-keystone/.env'
+      }
+    },
+    test: {
+      type: '1n-sequence',
+      options: {
+        sequence: [
+          'nodemon',
+          'browsersync'
+        ]
+      }
     }
 	}
 }

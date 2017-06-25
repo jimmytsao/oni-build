@@ -5,6 +5,7 @@ var sequence = require('./1n-sequence');
 var watch = require('./1n-watch');
 var del = require('./1n-delete');
 var browserSync = require('./1n-browser-sync');
+var nodemon = require('./1n-nodemon');
 
 var _ = require('lodash');
 
@@ -15,7 +16,8 @@ var taskSetupMap = {
   '1n-sequence': sequence,
   '1n-watch': watch,
   '1n-delete': del,
-  '1n-browser-sync': browserSync
+  '1n-browser-sync': browserSync,
+  '1n-nodemon': nodemon
 };
 
 module.exports = function(config){
@@ -24,7 +26,10 @@ module.exports = function(config){
 
   _.each(tasks, function(task, taskName){
     var taskSetup = taskSetupMap[task.type];
-    if (taskSetup)
+    if (taskSetup) {
       taskSetup(taskName, task);
+    } else {
+      throw new Error('Incorrect task type in gulpfile config for task: ' + taskName);
+    }
   });
 }
