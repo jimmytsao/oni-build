@@ -3,6 +3,7 @@ var bundlejs = require('./1n-bundlejs');
 var copy = require('./1n-copy');
 var sequence = require('./1n-sequence');
 var watch = require('./1n-watch');
+var del = require('./1n-delete')
 
 var _ = require('lodash');
 
@@ -11,7 +12,8 @@ var taskSetupMap = {
   '1n-bundlejs': bundlejs,
   '1n-copy': copy,
   '1n-sequence': sequence,
-  '1n-watch': watch
+  '1n-watch': watch,
+  '1n-delete': del
 };
 
 module.exports = function(config){

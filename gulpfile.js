@@ -53,6 +53,7 @@ var config = {
       type: '1n-sequence',
       options: {
         sequence: [
+          'del',
           'dev',
           'another'
         ]
@@ -76,6 +77,12 @@ var config = {
             ]
           }
         ]
+      }
+    },
+    del: {
+      type: '1n-delete',
+      options: {
+        src: 'public'
       }
     }
 	}
