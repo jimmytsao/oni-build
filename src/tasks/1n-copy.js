@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var rename = require('gulp-rename');
 var gulpIf = require('gulp-if');
 var _ = require('lodash');
-var pipeDests = require('./helpers/pipeDests');
+var pipeDests = require('./../helpers/pipeDests');
 
 var createTask = function(taskName, taskConfig){
   var sources = taskConfig.options.sources;

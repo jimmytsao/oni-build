@@ -1,5 +1,3 @@
-
-
 var config = {
 	tasks: {
 		scss: {
@@ -123,4 +121,4 @@ var config = {
 	}
 }
 
-require('./tasks/index')(config);
+require('./src/index')(config);

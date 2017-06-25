@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var webpackStream = require('webpack-stream');
 var path = require('path');
 var _ = require('lodash');
-var pipeDests = require('./helpers/pipeDests');
+var pipeDests = require('./../helpers/pipeDests');
 
 var defaultOptions = {
 	sourcemaps: true,

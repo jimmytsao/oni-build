@@ -1,12 +1,12 @@
-var scss = require('./1n-scss');
-var bundlejs = require('./1n-bundlejs');
-var copy = require('./1n-copy');
-var sequence = require('./1n-sequence');
-var watch = require('./1n-watch');
-var del = require('./1n-delete');
-var browserSync = require('./1n-browser-sync');
-var nodemon = require('./1n-nodemon');
-var custom = require('./1n-custom');
+var scss = require('./tasks/1n-scss');
+var bundlejs = require('./tasks/1n-bundlejs');
+var copy = require('./tasks/1n-copy');
+var sequence = require('./tasks/1n-sequence');
+var watch = require('./tasks/1n-watch');
+var del = require('./tasks/1n-delete');
+var browserSync = require('./tasks/1n-browser-sync');
+var nodemon = require('./tasks/1n-nodemon');
+var custom = require('./tasks/1n-custom');
 
 var _ = require('lodash');
 

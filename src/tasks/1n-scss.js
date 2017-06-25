@@ -6,7 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var gulpIf = require('gulp-if');
 var rename = require('gulp-rename');
 var _ = require('lodash');
-var pipeDests = require('./helpers/pipeDests');
+var pipeDests = require('./../helpers/pipeDests');
 
 
 var defaultOptions = {
