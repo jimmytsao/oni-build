@@ -15,6 +15,21 @@ var config = {
 				src: ['mockSrc/js/site.js', 'mockSrc/js/modules/homepage.js'],
 				dest: ['public/js', 'public/js/subfolder']
 			}
+		},
+		copy: {
+			type: '1n-copy',
+			options: {
+				sources: [
+					{
+						src: 'mockSrc/images/**/*',
+						dest: 'public/images'
+					},
+					{
+						src: 'mockSrc/images/**/*',
+						dest: 'public/images/subfolder'
+					}
+				]
+			}
 		}
 	}
 }
