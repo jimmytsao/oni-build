@@ -3,7 +3,8 @@ var bundlejs = require('./1n-bundlejs');
 var copy = require('./1n-copy');
 var sequence = require('./1n-sequence');
 var watch = require('./1n-watch');
-var del = require('./1n-delete')
+var del = require('./1n-delete');
+var browserSync = require('./1n-browser-sync');
 
 var _ = require('lodash');
 
@@ -13,7 +14,8 @@ var taskSetupMap = {
   '1n-copy': copy,
   '1n-sequence': sequence,
   '1n-watch': watch,
-  '1n-delete': del
+  '1n-delete': del,
+  '1n-browser-sync': browserSync
 };
 
 module.exports = function(config){

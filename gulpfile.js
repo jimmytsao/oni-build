@@ -84,6 +84,14 @@ var config = {
       options: {
         src: 'public'
       }
+    },
+    browsersync: {
+      type: '1n-browser-sync',
+      options: {
+        files: 'public/**/*',
+        port: 3030,
+        proxy: 'localhost:3000',
+      }
     }
 	}
 }
