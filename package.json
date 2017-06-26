@@ -1,13 +1,13 @@
 {
-  "name": "1n-gulp",
-  "version": "1.0.0",
+  "name": "oni-build",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jimmy Tsao",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "babel-core": "6.25.0",
     "babel-loader": "7.1.0",
