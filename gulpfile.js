@@ -3,14 +3,14 @@ var config = {
 		scss: {
 			type: '1n-scss',
 			options: {
-				src: 'mockSrc/styles/*.scss',
+				src: 'mockFiles/styles/*.scss',
 				dest: ['public/styles', 'public/styles/subfolder']
 			}
 		},
 		bundlejs: {
 			type: '1n-bundlejs',
 			options: {
-				src: ['mockSrc/js/site.js', 'mockSrc/js/modules/homepage.js'],
+				src: ['mockFiles/js/site.js', 'mockFiles/js/modules/homepage.js'],
 				dest: ['public/js', 'public/js/subfolder']
 			}
 		},
@@ -19,11 +19,11 @@ var config = {
 			options: {
 				sources: [
 					{
-						src: 'mockSrc/images/**/*',
+						src: 'mockFiles/images/**/*',
 						dest: 'public/images'
 					},
 					{
-						src: 'mockSrc/images/**/*',
+						src: 'mockFiles/images/**/*',
 						dest: 'public/images/subfolder'
 					}
 				]
@@ -62,13 +62,13 @@ var config = {
       options: {
         sources: [
           {
-            src: 'mockSrc/js/**.*',
+            src: 'mockFiles/js/**.*',
             sequence: [
               'combo'
             ]
           },
           {
-            src: 'mockSrc/styles/**/*',
+            src: 'mockFiles/styles/**/*',
             sequence: [
               'scss',
               'copy'
