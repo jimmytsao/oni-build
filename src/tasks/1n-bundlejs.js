@@ -33,7 +33,7 @@ var addEnvVariables = function(options){
 }
 
 var createTask = function(taskName, taskConfig){
-	var options = _.merge(defaultOptions, taskConfig.options);
+	var options = _.merge({}, defaultOptions, taskConfig.options);
 
 	var webpackConfig = {
 		devtool: options.sourcemaps ? 'source-map' : '',
