@@ -86,19 +86,19 @@ var config = {
     browsersync: {
       type: '1n-browser-sync',
       options: {
-        files: 'public/**/*',
+        files: 'build/**/*',
         serveStatic: [
           {
-            route: '/public',
-            dir: '/public'
+            route: '/test',
+            dir: './build/styles'
           }
         ],
         port: 3030,
         proxy: 'https://www.lathamdrive.com',
         rewriteRules: [
           {
-            match: new RegExp('site-e956493884.css'),
-            replace: 'site.css'
+            match: new RegExp('styles/site-e956493884.css'),
+            replace: 'test/site.css'
           }
         ]
       }
@@ -114,7 +114,7 @@ var config = {
       type: '1n-scss',
       options: {
         src: '../../projects/latham-watkins-keystone/src/client/styles/site.scss',
-        dest: ['public/styles']
+        dest: ['build/styles']
       }
     },
     testBrowserSync: {
