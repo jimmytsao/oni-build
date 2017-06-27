@@ -87,8 +87,15 @@ var config = {
       type: '1n-browser-sync',
       options: {
         files: 'public/**/*',
+        serveStatic: ['public'],
         port: 3030,
-        proxy: 'localhost:3000',
+        proxy: 'https://www.lathamdrive.com',
+        rewriteRules: [
+          {
+            match: new RegExp('site-e956493884.css'),
+            replace: 'site.css'
+          }
+        ]
       }
     },
     nodemon: {
@@ -96,6 +103,23 @@ var config = {
       options: {
         script: '../../projects/latham-watkins-keystone/keystone.js',
         envFile: '../../projects/latham-watkins-keystone/.env'
+      }
+    },
+    scssTest: {
+      type: '1n-scss',
+      options: {
+        src: '../../projects/latham-watkins-keystone/src/client/styles/site.scss',
+        dest: ['public/styles']
+      }
+    },
+    testBrowserSync: {
+      type: '1n-sequence',
+      options: {
+        sequence: [
+          'del',
+          'scssTest',
+          'browsersync'
+        ]
       }
     },
     test: {
@@ -108,7 +132,6 @@ var config = {
         ]
       }
     },
-
     custom: {
       type: 'custom',
       options: {

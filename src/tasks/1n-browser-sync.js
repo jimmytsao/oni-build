@@ -3,9 +3,8 @@ var browserSync = require('browser-sync').create();
 
 var createTask = function(taskName, taskConfig){
   gulp.task(taskName, function(callback){
-    browserSync.init(taskConfig.options);
 
-    // TODO: Add middleware to serve files
+    browserSync.init(taskConfig.options);
   });
 };
 
