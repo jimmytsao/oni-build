@@ -87,7 +87,12 @@ var config = {
       type: '1n-browser-sync',
       options: {
         files: 'public/**/*',
-        serveStatic: ['public'],
+        serveStatic: [
+          {
+            route: '/public',
+            dir: '/public'
+          }
+        ],
         port: 3030,
         proxy: 'https://www.lathamdrive.com',
         rewriteRules: [
