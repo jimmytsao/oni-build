@@ -60,6 +60,33 @@ var createTask = function(taskName, taskConfig){
 		].concat(options.plugins), undefined)
 	};
 
+  if (options.lint !== false){
+    if (options.eslintOptions) {
+      webpackConfig.module.rules.push({
+        enforce: 'pre',
+        test: /\.jsx?$/,
+        loader: 'eslint-loader',
+        exclude: /(node_modules|bower_components)/,
+        options: options.eslintOptions
+      })
+    } else {
+      webpackConfig.module.rules.push({
+        enforce: 'pre',
+        test: /\.jsx?$/,
+        loader: 'standard-loader',
+        exclude: /(node_modules|bower_components)/,
+        options: {
+          // Emit errors instead of warnings (default = false)
+          error: false,
+          // enable snazzy output (default = true)
+          snazzy: true,
+          // other config options to be passed through to standard e.g.
+          parser: 'babel-eslint'
+        }
+      })
+    }
+  }
+
 	gulp.task(taskName, function(){
 		var task = gulp.src(options.src)
 			.pipe(webpackStream(webpackConfig, webpack));
