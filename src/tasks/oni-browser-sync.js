@@ -5,6 +5,8 @@ var createTask = function(taskName, taskConfig){
   gulp.task(taskName, function(callback){
 
     browserSync.init(taskConfig);
+
+    callback();
   });
 };
 

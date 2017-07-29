@@ -11,6 +11,8 @@ var createTask = function(taskName, taskConfig){
         runSequence.apply(null, source.sequence);
       })
     });
+
+    callback();
   });
 };
 

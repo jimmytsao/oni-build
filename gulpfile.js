@@ -118,8 +118,9 @@ var tasks = {
     type: 'oni-sequence',
     sequence: [
       'custom',
-      'nodemon',
-      'browsersync'
+      'watch',
+      'browsersync',
+      'nodemon'
     ]
   },
   custom: {
