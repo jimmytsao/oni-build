@@ -14,6 +14,22 @@ var config = {
 				dest: ['public/js', 'public/js/subfolder']
 			}
 		},
+		lintcss: {
+			type: '1n-lint-css',
+			options: {
+        src: ['mockFiles/styles/**/*.scss'],
+        bemLinterSrc: ['mockFiles/styles/components/**/*.scss'],
+			}
+    },
+    styles: {
+      type: '1n-sequence',
+      options: {
+        sequence: [
+          'lintcss',
+          'scss'
+        ]
+      }
+    },
 		copy: {
 			type: '1n-copy',
 			options: {
