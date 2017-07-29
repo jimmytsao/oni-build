@@ -4,7 +4,7 @@ var runSequence = require('run-sequence').use(gulp);
 var createTask = function(taskName, taskConfig){
 
   gulp.task(taskName, function(callback){
-    var sources = taskConfig.options.sources;
+    var sources = taskConfig.sources;
 
     sources.forEach(function(source){
       gulp.watch(source.src, function(){
@@ -14,6 +14,6 @@ var createTask = function(taskName, taskConfig){
   });
 };
 
-module.exports = function(taskName, options){
-  createTask(taskName, options);
+module.exports = function(taskName, taskConfig){
+  createTask(taskName, taskConfig);
 }

@@ -7,7 +7,7 @@ var createTask = function(taskName, taskConfig){
 
   gulp.task(taskName, function(){
 
-    var options = _.cloneDeep(taskConfig.options);
+    var options = _.cloneDeep(taskConfig);
 
     if (options.envFile){
       options.env = dotenv.load({path: options.envFile}).parsed;
@@ -23,6 +23,6 @@ var createTask = function(taskName, taskConfig){
   });
 };
 
-module.exports = function(taskName, options){
-  createTask(taskName, options);
+module.exports = function(taskName, taskConfig){
+  createTask(taskName, taskConfig);
 }

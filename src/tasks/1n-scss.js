@@ -18,7 +18,7 @@ var defaultOptions = {
 };
 
 var createTask = function(taskName, taskConfig){
-  var options = _.merge({}, defaultOptions, taskConfig.options);
+  var options = _.merge({}, defaultOptions, taskConfig);
   var autoprefixerOptions = options.autoprefixerOptions || { browsers: ['last 2 version'] };
 
   gulp.task(taskName, function(){
@@ -36,6 +36,6 @@ var createTask = function(taskName, taskConfig){
   });
 };
 
-module.exports = function(taskName, options){
-  createTask(taskName, options);
+module.exports = function(taskName, taskConfig){
+  createTask(taskName, taskConfig);
 }

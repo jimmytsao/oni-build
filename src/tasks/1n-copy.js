@@ -4,7 +4,7 @@ var gulpIf = require('gulp-if');
 var pipeDests = require('./../helpers/pipeDests');
 
 var createTask = function(taskName, taskConfig){
-  var sources = taskConfig.options.sources;
+  var sources = taskConfig.sources;
 
   gulp.task(taskName, function(callback){
 
@@ -31,6 +31,6 @@ var createTask = function(taskName, taskConfig){
   });
 };
 
-module.exports = function(taskName, options){
-  createTask(taskName, options);
+module.exports = function(taskName, taskConfig){
+  createTask(taskName, taskConfig);
 }

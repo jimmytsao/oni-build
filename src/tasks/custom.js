@@ -4,12 +4,12 @@ var _ = require('lodash');
 var createTask = function(taskName, taskConfig){
 
   gulp.task(taskName, function(callback){
-    var options = _.cloneDeep(taskConfig.options);
+    var options = _.cloneDeep(taskConfig);
 
-    taskConfig.options.customTask(callback, gulp, options);
+    taskConfig.customTask(callback, gulp, options);
   });
 };
 
-module.exports = function(taskName, options){
-  createTask(taskName, options);
+module.exports = function(taskName, taskConfig){
+  createTask(taskName, taskConfig);
 }

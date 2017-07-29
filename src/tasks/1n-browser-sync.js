@@ -4,10 +4,10 @@ var browserSync = require('browser-sync').create();
 var createTask = function(taskName, taskConfig){
   gulp.task(taskName, function(callback){
 
-    browserSync.init(taskConfig.options);
+    browserSync.init(taskConfig);
   });
 };
 
-module.exports = function(taskName, options){
-  createTask(taskName, options);
+module.exports = function(taskName, taskConfig){
+  createTask(taskName, taskConfig);
 }
