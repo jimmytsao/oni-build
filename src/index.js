@@ -3,10 +3,7 @@ var requireDir = require('require-dir');
 
 var taskSetupMap = requireDir('./tasks');
 
-module.exports = function(config){
-
-  var tasks = config.tasks;
-
+module.exports = function(tasks){
   _.each(tasks, function(task, taskName){
     var taskSetup = taskSetupMap[task.type];
     if (taskSetup) {
