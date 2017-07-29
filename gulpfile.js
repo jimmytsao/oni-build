@@ -1,28 +1,28 @@
 var tasks = {
   scss: {
-    type: '1n-scss',
+    type: 'oni-compile-styles',
     src: 'mockFiles/styles/*.scss',
     dest: ['public/styles', 'public/styles/subfolder']
   },
   bundlejs: {
-    type: '1n-bundlejs',
+    type: 'oni-bundle-js',
     src: ['mockFiles/js/site.js', 'mockFiles/js/modules/homepage.js'],
     dest: ['public/js', 'public/js/subfolder']
   },
   lintcss: {
-    type: '1n-lint-css',
+    type: 'oni-lint-styles',
     src: ['mockFiles/styles/**/*.scss'],
     bemLinterSrc: ['mockFiles/styles/components/**/*.scss'],
   },
   styles: {
-    type: '1n-sequence',
+    type: 'oni-sequence',
     sequence: [
       'lintcss',
       'scss'
     ]
   },
   copy: {
-    type: '1n-copy',
+    type: 'oni-copy',
     sources: [
       {
         src: 'mockFiles/images/**/*',
@@ -35,21 +35,21 @@ var tasks = {
     ]
   },
   dev: {
-    type: '1n-sequence',
+    type: 'oni-sequence',
     sequence: [
       'copy',
       ['scss', 'bundlejs']
     ]
   },
   another: {
-    type: '1n-sequence',
+    type: 'oni-sequence',
     sequence: [
       'copy',
       'bundlejs'
     ]
   },
   combo: {
-    type: '1n-sequence',
+    type: 'oni-sequence',
     sequence: [
       'del',
       'dev',
@@ -57,7 +57,7 @@ var tasks = {
     ]
   },
   watch: {
-    type: '1n-watch',
+    type: 'oni-watch',
     sources: [
       {
         src: 'mockFiles/js/**.*',
@@ -75,11 +75,11 @@ var tasks = {
     ]
   },
   del: {
-    type: '1n-delete',
+    type: 'oni-delete',
     src: 'public'
   },
   browsersync: {
-    type: '1n-browser-sync',
+    type: 'oni-browser-sync',
     files: 'build/**/*',
     serveStatic: [
       {
@@ -97,17 +97,17 @@ var tasks = {
     ]
   },
   nodemon: {
-    type: '1n-nodemon',
+    type: 'oni-nodemon',
     script: '../../projects/latham-watkins-keystone/keystone.js',
     envFile: '../../projects/latham-watkins-keystone/.env'
   },
   scssTest: {
-    type: '1n-scss',
+    type: 'oni-compile-styles',
     src: '../../projects/latham-watkins-keystone/src/client/styles/site.scss',
     dest: ['build/styles']
   },
   testBrowserSync: {
-    type: '1n-sequence',
+    type: 'oni-sequence',
     sequence: [
       'del',
       'scssTest',
@@ -115,7 +115,7 @@ var tasks = {
     ]
   },
   test: {
-    type: '1n-sequence',
+    type: 'oni-sequence',
     sequence: [
       'custom',
       'nodemon',
