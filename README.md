@@ -221,9 +221,9 @@ Predefined `oni-build` tasks are selected through the `type` property for each t
 
 | Option | Type | Default Value | Description
 |:---:|:---:|:---:|---
-`src` | `String | Array<String>` | - |File path(s) to the SCSS files that need to be linted
+`src` | `String` or `Array<String>` | - |File path(s) to the SCSS files that need to be linted
 `bemLinter` | `Boolean` | `true` | Check that class names confirm to BEM standards
-`bemLinterSrc` | `String | Array<String>` | value provided by `src` | File path(s) to SCSS files that should be BEM Linted
+`bemLinterSrc` | `String` or `Array<String>` | value provided by `src` | File path(s) to SCSS files that should be BEM Linted
 
 #### Sample Configuration
 
@@ -258,8 +258,8 @@ gulp lint-styles
 
 | Option | Type | Default Value | Description
 |:---:|:---:|:---:|---
-`src` | `String | Array<String>` | - |File path(s) of the entry point(s) to the SCSS project
-`dest` | `String | Array<String>` | - | Destination folder(s) for the compiled CSS
+`src` | `String` or `Array<String>` | - |File path(s) of the entry point(s) to the SCSS project
+`dest` | `String` or `Array<String>` | - | Destination folder(s) for the compiled CSS
 `rename` | `String` | - | The default output file name is the name of the entry file. Use this option to change the output filename to a different name
 `sourcemaps` | `Boolean` | `true` | Generate sourcemaps and output sourcemaps to the `dest` folder(s)
 `autoprefixer` | `Boolean` | `true` | Add browser prefixes for cross-browser support
@@ -300,8 +300,8 @@ gulp compile-styles
 
 | Option | Type | Default Value | Description
 |:---:|:---:|:---:|---
-`src` | `String | Array<String>` | - |File path(s) of the entry point(s) to the bundle
-`dest` | `String | Array<String>` | - | Destination folder(s) for the compiled bundle
+`src` | `String` or `Array<String>` | - |File path(s) of the entry point(s) to the bundle
+`dest` | `String` or `Array<String>` | - | Destination folder(s) for the compiled bundle
 `uglify` | `Boolean` | `true` | Uglify compiled JavaScript
 `lint` | `Boolean` | `true` | Lint JavaScript with `standardjs` rules
 
@@ -337,7 +337,7 @@ gulp bundle-js
 
 | Option | Type | Default Value | Description
 |:---:|:---:|:---:|---
-`sources` | `Array`<br>`<{ src: String | Array<String>,` <br>`dest: String | Array<String> }>` | - | An array defining the files to copy and their destinations
+`sources` | `Array`<br>`<{ src: String` or  `Array<String>,` <br>`dest: String` or `Array<String> }>` | - | An array defining the files to copy and their destinations
 
 #### Sample Configuration
 
@@ -377,7 +377,7 @@ gulp copy
 
 | Option | Type | Default Value | Description
 |:---:|:---:|:---:|---
-`src` | `String | Array<String>` | - |File path(s) and/or folders to delete
+`src` | `String` or `Array<String>` | - |File path(s) and/or folders to delete
 
 #### Sample Configuration
 
@@ -409,7 +409,7 @@ gulp clean
 
 | Option | Type | Default Value | Description
 |:---:|:---:|:---:|---
-`sequence` | `Array<String | sequence>` | - | The list of tasks to run and the sequence in which they should run in. Tasks defined in an Array will run in parallel and will all need to be completed before moving onto the next task
+`sequence` | `Array<String` or `sequence>` | - | The list of tasks to run and the sequence in which they should run in. Tasks defined in an Array will run in parallel and will all need to be completed before moving onto the next task
 
 #### Sample Configuration
 
@@ -465,7 +465,7 @@ gulp sequence
 
 | Option | Type | Default Value | Description
 |:---:|:---:|:---:|---
-`sources` | `Array`<br>`<{ src: String | Array<String>,` <br>`sequence: Array <String | Array<String>> }>` | - | An array defining the files to watch and a sequence of tasks to run when those files change. The sequence is defined the same way as `sequence` in the `oni-sequence` task
+`sources` | `Array`<br>`<{ src: String` or `Array<String>,` <br>`sequence: Array <String` or `Array<String>> }>` | - | An array defining the files to watch and a sequence of tasks to run when those files change. The sequence is defined the same way as `sequence` in the `oni-sequence` task
 
 #### Sample Configuration
 
