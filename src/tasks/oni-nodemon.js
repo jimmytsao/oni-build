@@ -5,7 +5,7 @@ var dotenv = require('dotenv');
 
 var createTask = function(taskName, taskConfig){
 
-  gulp.task(taskName, function(){
+  gulp.task(taskName, function(callback){
 
     var options = _.cloneDeep(taskConfig);
 
@@ -20,6 +20,8 @@ var createTask = function(taskName, taskConfig){
         config.handler(stream);
       });
     });
+
+    stream.on('start', callback);
   });
 };
 
