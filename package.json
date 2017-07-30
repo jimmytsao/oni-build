@@ -1,7 +1,7 @@
 {
   "name": "oni-build",
   "version": "0.0.1",
-  "description": "",
+  "description": "Quickly setup common build tasks without dealing with the implementation details",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
