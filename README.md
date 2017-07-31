@@ -517,14 +517,14 @@ gulp watch
 
 #### Options
 
-The task config object for `oni-nodemon` is passed directly to `gulp-nodemon`. As a result, all of the `gulp-nodemon` options can be used in the task config object. [See their documentation](https://github.com/JacksonGariety/gulp-nodemon) for details on available options.
+The task config object for `oni-nodemon` is passed directly to `gulp-nodemon`. As a result, all of the `gulp-nodemon` options can be used in the task config object. [See their documentation](https://github.com/JacksonGariety/gulp-nodemon){:target="_blank"} for details on available options.
 
 The options in the table below can also be used in addition to the ones defined in `gulp-nodemon`:
 
 | Option | Type | Default Value | Description
 |:---:|:---:|:---:|---
 `envFile` | `String` | - | File path to an .env file. The contents of the file will be loaded as environmental variables with `gulp-nodemon`
-`eventHandlers` | `Array <{ event: String, handler: Function(stream) }>` | - | Array defining nodemon event callbacks. Each callback will be passed the `gulp-nodemon` stream as the first argument. [See the `gulp-nodemon` documentation](https://github.com/JacksonGariety/gulp-nodemon#events) for details.
+`eventHandlers` | `Array <{ event: String, handler: Function(stream) }>` | - | Array defining nodemon event callbacks. Each callback will be passed the `gulp-nodemon` stream as the first argument. [See the `gulp-nodemon` documentation](https://github.com/JacksonGariety/gulp-nodemon#events){:target="_blank"} for details.
 
 
 #### Sample Configuration
@@ -563,7 +563,7 @@ var tasks = {
       {
         event: 'restart',
         handler: function(stream){
-          console.log('Server Restarted!);
+          console.log('Server Restarted!');
         }
       }
     ]
@@ -584,7 +584,7 @@ gulp nodemon
 
 #### Options
 
-The task config object for `oni-browser-sync` is passed directly to `browser-sync`. As a result, all of the `browser-sync` options can be used in the task config object. [See their documentation](https://browsersync.io/docs/options) for details on available options.
+The task config object for `oni-browser-sync` is passed directly to `browser-sync`. As a result, all of the `browser-sync` options can be used in the task config object. [See their documentation](https://browsersync.io/docs/options){:target="_blank"} for details on available options.
 
 
 #### Sample Configuration
@@ -637,3 +637,11 @@ Running the task in the terminal:
 ```
 gulp dev
 ```
+
+#### Using BrowserSync To Fix Bugs On Live Site
+
+BrowserSync is a powerful development tool that can also be used to fix bugs on a live site.
+
+Assume that you've been tasked to make some style updates to the homepage of a live site. A typical workflow requires you to setup a local development environment so that you can test and confirm the changes. To make your local environment mimic the live production environment you may have to pull down a copy of the database and then setup a local instance of the server. Depending on your project, setting up this local environment can take up to a few hours.
+
+*TODO: finish documentation*
