@@ -78,21 +78,17 @@ var tasks = {
     type: 'oni-delete',
     src: 'public'
   },
+
   browsersync: {
     type: 'oni-browser-sync',
-    files: 'build/**/*',
-    serveStatic: [
-      {
-        route: '/test',
-        dir: './build/styles'
-      }
-    ],
+    files: ['public/**/*'],
+    serveStatic: ['public'],
     port: 3030,
-    proxy: 'https://www.lathamdrive.com',
+    proxy: 'https://www.onenorth.com/',
     rewriteRules: [
       {
-        match: new RegExp('styles/site-e956493884.css'),
-        replace: 'test/site.css'
+        match: new RegExp('href="/css/main.css"'),
+        replace: 'href="/styles/site.css"'
       }
     ]
   },

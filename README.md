@@ -435,10 +435,12 @@ var tasks = {
     // task configuration    
   },
 
-  // 'delete' will run first
-  // 'lint-styles' will run after 'delete' is complete
-  // 'compile-styles' and 'bundle-js' will both run after 'lint-styles' is complete
-  // 'copy' will run after both 'compile-styles' and 'bundle-js' are complete
+  /*
+    'delete' will run first
+    'lint-styles' will run after 'delete' is complete
+    'compile-styles' and 'bundle-js' will both run after 'lint-styles' is complete
+    'copy' will run after both 'compile-styles' and 'bundle-js' are complete
+  */
   sequence: {
     type: 'oni-sequence',
     sequence: [
@@ -507,4 +509,131 @@ build(tasks)
 Running the task in the terminal:
 ```
 gulp watch
+```
+
+### `oni-nodemon`
+
+`oni-nodemon` allows you to use nodemon for development
+
+#### Options
+
+The task config object for `oni-nodemon` is passed directly to `gulp-nodemon`. As a result, all of the `gulp-nodemon` options can be used in the task config object. [See their documentation](https://github.com/JacksonGariety/gulp-nodemon) for details on available options.
+
+The options in the table below can also be used in addition to the ones defined in `gulp-nodemon`:
+
+| Option | Type | Default Value | Description
+|:---:|:---:|:---:|---
+`envFile` | `String` | - | File path to an .env file. The contents of the file will be loaded as environmental variables with `gulp-nodemon`
+`eventHandlers` | `Array <{ event: String, handler: Function(stream) }>` | - | Array defining nodemon event callbacks. Each callback will be passed the `gulp-nodemon` stream as the first argument. [See the `gulp-nodemon` documentation](https://github.com/JacksonGariety/gulp-nodemon#events) for details.
+
+
+#### Sample Configuration
+
+```js
+// gulpfile.js
+
+var build = require('oni-build')
+
+var tasks = {
+  'bundle-js': {
+    // task configuration
+  },
+  'copy': {
+    // task configuration
+  },
+  nodemon: {
+    type: 'oni-nodemon',
+
+    // gulp-nodemon options
+    script: 'server.js',
+    ignore: ['node_modules/**/*'],
+    watch: ['src/server/**/*.js'],
+    tasks: ['bundlejs', 'copy'],
+
+    // oni-nodemon options
+    envFile: '/.env',
+    eventHandlers: [
+      {
+        event: 'crash',
+        handler: function(stream){
+          console.error('Application has crashed!\n')
+          stream.emit('restart', 10)  // restart the server in 10 seconds
+        }
+      },
+      {
+        event: 'restart',
+        handler: function(stream){
+          console.log('Server Restarted!);
+        }
+      }
+    ]
+  }
+}
+
+build(tasks)
+```
+Running the task in the terminal:
+```
+gulp nodemon
+```
+
+
+### `oni-browser-sync`
+
+`oni-browser-sync` allows you to use browser-sync for development or for debugging live sites
+
+#### Options
+
+The task config object for `oni-browser-sync` is passed directly to `browser-sync`. As a result, all of the `browser-sync` options can be used in the task config object. [See their documentation](https://browsersync.io/docs/options) for details on available options.
+
+
+#### Sample Configuration
+
+```js
+// gulpfile.js
+
+var build = require('oni-build')
+
+var tasks = {
+  'bundle-js': {
+    // task configuration
+  },
+  'copy': {
+    // task configuration
+  },
+  nodemon: {
+    // task configuration
+  },
+  dev: {
+    type: 'oni-sequence',
+    sequence: [
+      'nodemon',
+      'browser-sync'
+    ]
+  },
+
+  /*
+    Assume the nodemon task is running a server on localhost:3000.
+
+    The task below will start a browser-sync server on localhost:3030
+    that will serve content from the nodemon server (localhost:3000). The browser-sync
+    server will serve files from the 'public' folder and when files change in the
+    'public' folder, the browser will be updated (changed html and js files will
+    trigger the browser to refresh while changed css files will have the new
+    css injected (no refresh)).
+  */
+  'browser-sync': {
+    type: 'oni-browser-sync',
+    files: ['public/**/*'],
+    serveStatic: ['public'],
+    port: 3030,
+    proxy: 'http://localhost:3000'
+  },
+}
+
+build(tasks)
+```
+Running the task in the terminal:
+```
+gulp dev
 ```
