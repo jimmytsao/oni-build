@@ -7,7 +7,8 @@ var pipeDests = require('./../helpers/pipeDests');
 
 var defaultOptions = {
 	sourcemaps: true,
-	uglify: true
+  uglify: true,
+  resolve: {}
 };
 
 var getFilename = function(options){
@@ -53,7 +54,8 @@ var createTask = function(taskName, taskConfig){
 					}
 				}
 			]
-		},
+    },
+    resolve: options.resolve,
 		plugins: _.without([
 			options.uglify ? addUglifyJsPlugin(options) : undefined,
 			options.env ? addEnvVariables(options) : undefined
