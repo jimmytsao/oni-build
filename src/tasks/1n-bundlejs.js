@@ -8,6 +8,7 @@ var pipeDests = require('./../helpers/pipeDests');
 var defaultOptions = {
 	sourcemaps: true,
   uglify: true,
+  uglifyNames: true,
   resolve: {}
 };
 
@@ -19,8 +20,9 @@ var getFilename = function(options){
 	return options.rename ? options.rename : defaultFileName;
 };
 
-var addUglifyJsPlugin = function(){
+var addUglifyJsPlugin = function (options) {
 	return new webpack.optimize.UglifyJsPlugin({
+    mangle: options.uglifyNames,
 		compress: {warnings: false }
 	});
 }
