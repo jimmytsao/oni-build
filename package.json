@@ -25,7 +25,7 @@
     "gulp-rename": "1.2.2",
     "gulp-sass": "3.1.0",
     "gulp-sourcemaps": "2.6.0",
-    "lodash": "4.17.4",
+    "lodash": "4.17.19",
     "require-dir": "0.3.2",
     "run-sequence": "1.2.2",
     "webpack": "3.0.0",
